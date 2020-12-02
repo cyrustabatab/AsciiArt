@@ -4,6 +4,10 @@ import numpy as np
 import math
 import cv2
 import sys
+from termcolor import colored,cprint
+import colorama
+
+colorama.init()
 
 
 image = cv2.imread(sys.argv[1])
@@ -14,7 +18,6 @@ image = cv2.resize(image,(350,120),interpolation=cv2.INTER_AREA)
 print("Successfully Loaded Image!")
 print(f"Image size: {image.shape[1]} x {image.shape[0]}")
 
-print(image.shape)
 brightness_matrix = np.zeros((image.shape[0],image.shape[1]))
 
 for row in range(image.shape[0]):
@@ -44,7 +47,7 @@ for row in range(brightness_matrix.shape[0]):
 
 
 for row in values:
-    print(''.join(row))
+    cprint(''.join(row),'green')
 
 
 
